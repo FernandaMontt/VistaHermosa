@@ -1,6 +1,10 @@
-<%@page import="DTO.UsuarioDTO"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- 
+    Document   : Contactanos
+    Created on : 12-10-2018, 18:15:09
+    Author     : note
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,39 +42,6 @@
         
     </head>
     <body>
-        <section>
-            <%
-                if((UsuarioDTO)request.getSession().getAttribute("usuarioDTO") != null){
-                    request.getSession().setAttribute("mensajeError", null);
-                    request.getRequestDispatcher("RedirigirIngreso").forward(request, response);
-                }
-                String mensajeError = (String)request.getSession().getAttribute("mensajeError");
-                request.getSession().setAttribute("mensajeError", null);
-                request.getSession().setAttribute("usuarioDTO", null);
-            %>
-        </section> <!-- CARGAR DATOS -->
-        <section>
-            <% if(mensajeError != null){ %>
-            <div class="modal" id="modalMensaje" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Municipalidad Vista Hermosa</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <p><%=mensajeError %></p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% } %>
-        </section> <!-- MODAL -->
         <div>
             <nav>
                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
@@ -84,20 +55,8 @@
             <div class="container cont">
                 <div class="row">
                     <div class="col-md-6 login-sec">
-                        <h2 class="text-center">Sistema de Ingreso</h2>
-                        <form class="login-form" name="form" id="form"  action="ValidarIngreso" method="POST">
-                            <div class="form-group">
-                                <label for="usuario" class="text-uppercase">Usuario</label>
-                                <input autofocus required id="usuario" type="text"  name="usuario" value="" class="form-control" minLength="5" maxLength="15" title="Ingresar usuario valido." placeholder="usuario valido">  
-                            </div>
-                            <div class="form-group">
-                                <label for="pass" class="text-uppercase">Contraseña</label>
-                                <input required id="pass" type="password"  name="pass" class="form-control" placeholder="Ingrese su clave" minLength="3" maxLength="20">
-                            </div>
-                            <div class="form-check">
-                                <button type="submit" class="btn btn-login float-right"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
-                            </div>
-                        </form>
+                        <h2 class="text-center">Contactanos</h2>
+                        
                     </div>
                     <div class="col-md-6 banner-horizontal">
                         <div class="banner-vertical">

@@ -47,9 +47,9 @@
             #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active { border-bottom: 4px solid !important; }
             
             .body-block{
-                background:rgb(20, 122, 75);
-                background:-webkit-linear-gradient(to bottom,rgb(8, 100, 20),rgb(255, 255, 255));
-                background:linear-gradient(to bottom,rgb(8, 100, 20),rgb(255, 255, 255));
+                background:#12237a;
+                background:-webkit-linear-gradient(to bottom,#12237a,rgb(255, 255, 255));
+                background:linear-gradient(to bottom,#12237a,rgb(255, 255, 255));
                 width:100%;height:100%;
                }
             .container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}

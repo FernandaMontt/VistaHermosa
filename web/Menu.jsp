@@ -1,6 +1,11 @@
-<%@page import="DTO.UsuarioDTO"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- 
+    Document   : Menu
+    Created on : 12-10-2018, 18:14:53
+    Author     : note
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,9 +16,11 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" ></script>
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        
         
         <title>Sistema de Gestión de Permisos</title>
         
@@ -34,23 +41,12 @@
             .login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: rgb(15, 160, 70);}
             .login-sec h2:after{content:" "; width:100px; height:5px; background:rgb(15, 160, 70); display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
             .btn-login{background: rgb(15, 160, 70); color:#fff; font-weight:600;}
+ 
         </style> <!-- CARGAR ESTILOS -->
         
     </head>
     <body>
         <section>
-            <%
-                if((UsuarioDTO)request.getSession().getAttribute("usuarioDTO") != null){
-                    request.getSession().setAttribute("mensajeError", null);
-                    request.getRequestDispatcher("RedirigirIngreso").forward(request, response);
-                }
-                String mensajeError = (String)request.getSession().getAttribute("mensajeError");
-                request.getSession().setAttribute("mensajeError", null);
-                request.getSession().setAttribute("usuarioDTO", null);
-            %>
-        </section> <!-- CARGAR DATOS -->
-        <section>
-            <% if(mensajeError != null){ %>
             <div class="modal" id="modalMensaje" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -61,15 +57,15 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <p><%=mensajeError %></p>
+                      <p>Bienvenido a la Municipalidad Vista Hermosa</p>
                     </div>
                     <div class="modal-footer">
+                        
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                   </div>
                 </div>
               </div>
-            <% } %>
         </section> <!-- MODAL -->
         <div>
             <nav>
@@ -84,20 +80,9 @@
             <div class="container cont">
                 <div class="row">
                     <div class="col-md-6 login-sec">
-                        <h2 class="text-center">Sistema de Ingreso</h2>
-                        <form class="login-form" name="form" id="form"  action="ValidarIngreso" method="POST">
-                            <div class="form-group">
-                                <label for="usuario" class="text-uppercase">Usuario</label>
-                                <input autofocus required id="usuario" type="text"  name="usuario" value="" class="form-control" minLength="5" maxLength="15" title="Ingresar usuario valido." placeholder="usuario valido">  
-                            </div>
-                            <div class="form-group">
-                                <label for="pass" class="text-uppercase">Contraseña</label>
-                                <input required id="pass" type="password"  name="pass" class="form-control" placeholder="Ingrese su clave" minLength="3" maxLength="20">
-                            </div>
-                            <div class="form-check">
-                                <button type="submit" class="btn btn-login float-right"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
-                            </div>
-                        </form>
+                        <h2 class="text-center">Menu</h2>
+                        <p>Bienvenido a la Municipalidad Vista Hermosa</p>
+                        <img src="imagenes/foto1.jpg" width="400" height="200" >
                     </div>
                     <div class="col-md-6 banner-horizontal">
                         <div class="banner-vertical">

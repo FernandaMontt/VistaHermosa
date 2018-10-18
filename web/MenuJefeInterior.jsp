@@ -18,7 +18,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="shortcut icon" type="image/x-icon" href="imagenes/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="imagenes/mvh7.png">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" ></script>
@@ -47,9 +47,9 @@
             #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active { border-bottom: 4px solid !important; }
             
             .body-block{
-                background:rgb(20, 122, 75);
-                background:-webkit-linear-gradient(to bottom,rgb(8, 100, 20),rgb(255, 255, 255));
-                background:linear-gradient(to bottom,rgb(8, 100, 20),rgb(255, 255, 255));
+                background:#12237a;
+                background:-webkit-linear-gradient(to bottom,#12237a,rgb(255, 255, 255));
+                background:linear-gradient(to bottom,#12237a,rgb(255, 255, 255));
                 width:100%;height:100%;
                }
             .container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
@@ -71,7 +71,7 @@
                 request.getSession().setAttribute("mensajeError", null);
                 
                 UsuarioDTO usuario = (UsuarioDTO)request.getSession().getAttribute("usuarioDTO");
-                if(usuario.getId_perfil() != 3 || usuario == null){
+                if(usuario.getId_perfil() != 4 || usuario == null){
                     mensajeError = "Autentificación incorrecta. Vuelva a ingresar.";
                     request.getSession().setAttribute("mensajeError", mensajeError);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -105,7 +105,7 @@
             <% } %>
         </section> <!-- MODAL -->
         <nav style="position: fixed; width: 100%; z-index: 1; top: 0;" class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img class="d-block img-fluid" src="imagenes/LogoMunicipalidad-small.png" height="40" width="40" alt="logo municipalidad"></a>
+            <a class="navbar-brand" href="#"><img class="d-block img-fluid" src="imagenes/mvh7.png" height="40" width="40" alt="logo municipalidad"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -119,8 +119,8 @@
                             Opciones
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="verPerfil.jsp">Ver Perfil</a>
-                            <a class="dropdown-item" href="cambiarClave.jsp">Cambiar Clave</a>
+                            <a class="dropdown-item" href="VerPerfil.jsp">Ver Perfil</a>
+                            <a class="dropdown-item" href="CambiarClave.jsp">Cambiar Clave</a>
                         </div>
                     </li>
                 </ul>
