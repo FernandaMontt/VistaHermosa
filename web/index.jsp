@@ -87,8 +87,8 @@
                         <h2 class="text-center">Sistema de Ingreso</h2>
                         <form class="login-form" name="form" id="form"  action="ValidarIngreso" method="POST">
                             <div class="form-group">
-                                <label for="usuario" class="text-uppercase">Usuario</label>
-                                <input autofocus required id="usuario" type="text"  name="usuario" value="" class="form-control" minLength="5" maxLength="15" title="Ingresar usuario valido." placeholder="usuario valido">  
+                                <label for="rut" class="text-uppercase">RUT</label>
+                                <input autofocus required id="rut" type="text"  name="rut" value="" class="form-control" minLength="9" maxLength="10" title="Ingresar Rut valido." placeholder="Rut valido">  
                             </div>
                             <div class="form-group">
                                 <label for="pass" class="text-uppercase">Contraseña</label>

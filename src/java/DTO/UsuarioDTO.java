@@ -5,6 +5,8 @@
  */
 package DTO;
 
+import java.util.Date;
+
 /**
  *
  * @author note
@@ -28,11 +30,15 @@ public class UsuarioDTO {
     private int id_perfil;
     private int id_cargo;
     private int id_departamento;
-    
+    private String genero;
+    private Date fecha_inicio;
+    private Date fecha_termino;
+    private int estado;
+
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(int id_usuario, String rut, String nombre, String apellido, String usuario, String pass, String correo_empresa, int f_legal, int p_administrativo, int p_parental, int p_fallecimiento, int anios_trabajados, int id_asistencia, int id_tipo_contrato, int id_perfil, int id_cargo, int id_departamento) {
+    public UsuarioDTO(int id_usuario, String rut, String nombre, String apellido, String usuario, String pass, String correo_empresa, int f_legal, int p_administrativo, int p_parental, int p_fallecimiento, int anios_trabajados, int id_asistencia, int id_tipo_contrato, int id_perfil, int id_cargo, int id_departamento, String genero, Date fecha_inicio, Date fecha_termino, int estado) {
         this.id_usuario = id_usuario;
         this.rut = rut;
         this.nombre = nombre;
@@ -50,9 +56,12 @@ public class UsuarioDTO {
         this.id_perfil = id_perfil;
         this.id_cargo = id_cargo;
         this.id_departamento = id_departamento;
+        this.genero = genero;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_termino = fecha_termino;
+        this.estado = estado;
     }
-    
-      
+
     public int getId_usuario() {
         return id_usuario;
     }
@@ -189,11 +198,44 @@ public class UsuarioDTO {
         this.id_departamento = id_departamento;
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public Date getFecha_inicio() {
+        return fecha_inicio;
+    }
+
+    public void setFecha_inicio(Date fecha_inicio) {
+        this.fecha_inicio = fecha_inicio;
+    }
+
+    public Date getFecha_termino() {
+        return fecha_termino;
+    }
+
+    public void setFecha_termino(Date fecha_termino) {
+        this.fecha_termino = fecha_termino;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
-        return "UsuarioDTO{" + "id_usuario=" + id_usuario + ", rut=" + rut + ", nombre=" + nombre + ", apellido=" + apellido + ", usuario=" + usuario + ", pass=" + pass + ", correo_empresa=" + correo_empresa + ", f_legal=" + f_legal + ", p_administrativo=" + p_administrativo + ", p_parental=" + p_parental + ", p_fallecimiento=" + p_fallecimiento + ", anios_trabajados=" + anios_trabajados + ", id_asistencia=" + id_asistencia + ", id_tipo_contrato=" + id_tipo_contrato + ", id_perfil=" + id_perfil + ", id_cargo=" + id_cargo + ", id_departamento=" + id_departamento + '}';
+        return "UsuarioDTO{" + "id_usuario=" + id_usuario + ", rut=" + rut + ", nombre=" + nombre + ", apellido=" + apellido + ", usuario=" + usuario + ", pass=" + pass + ", correo_empresa=" + correo_empresa + ", f_legal=" + f_legal + ", p_administrativo=" + p_administrativo + ", p_parental=" + p_parental + ", p_fallecimiento=" + p_fallecimiento + ", anios_trabajados=" + anios_trabajados + ", id_asistencia=" + id_asistencia + ", id_tipo_contrato=" + id_tipo_contrato + ", id_perfil=" + id_perfil + ", id_cargo=" + id_cargo + ", id_departamento=" + id_departamento + ", genero=" + genero + ", fecha_inicio=" + fecha_inicio + ", fecha_termino=" + fecha_termino + ", estado=" + estado + '}';
     }
     
+   
     
     
 }

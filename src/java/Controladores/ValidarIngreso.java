@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -40,11 +41,11 @@ public class ValidarIngreso extends HttpServlet {
                 request.getRequestDispatcher("RedirigirIngreso").forward(request, response);
             }else{
             
-                String usuario = request.getParameter("usuario");
+                String rut = request.getParameter("rut");
                 String pass = request.getParameter("pass");
-
+                String EPass=DigestUtils.md5Hex(pass);
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
-                UsuarioDTO usuarioDTO = usuarioDAO.read(usuario);
+                UsuarioDTO usuarioDTO = usuarioDAO.read(rut);
 
                 if(usuarioDTO == null){ // USUARIO NO SE ENCUENTRA EN LA BBDD
                     String mensajeError = "Usuario no existe en la base de datos, por favor vuelva a intentarlo.";

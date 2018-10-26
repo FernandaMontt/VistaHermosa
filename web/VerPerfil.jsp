@@ -159,8 +159,16 @@
                             <td><a href="mailto:<%=usuario.getCorreo_empresa() %>"><%=usuario.getCorreo_empresa() %></a></td>
                         </tr>
                         <tr>
-                            <td>Fecha de Contrato</td>
-                            <td></td> 
+                            <td>Fecha de Inicio</td>
+                            <td><%= usuario.getFecha_inicio() %></td> 
+                        </tr>
+                        <tr>
+                            <td>Fecha de Termino</td>
+                            <td><%= usuario.getFecha_termino() %></td> 
+                        </tr>
+                        <tr>
+                            <td>Genero</td>
+                            <td><%= usuario.getGenero() %></td> 
                         </tr>
                     </tbody>
                 </table>

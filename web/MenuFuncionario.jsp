@@ -171,11 +171,11 @@
                                                 <% for (PermisoDTO permiso: listaPermisos)
                                                 {%>
                                                 <tr>
-                                                    <td><%=Fechas.formatoFechaHora(permiso.getFecha_solicitud()) %></td>
+                                                    <td><%=permiso.getFecha_solicitud() %></td>
                                                     <td><%=permisoEstadoDAO.read(permiso.getId_estado_permiso()).getEstado() %></td>
                                                     <td><%=permisoTipoDAO.read(permiso.getId_tipo_permiso()).getPermiso() %></td>
-                                                    <td><%=Fechas.formatoFecha(permiso.getFecha_inicio()) %></td>
-                                                    <td><%=Fechas.formatoFecha(permiso.getFecha_termino()) %></td>
+                                                    <td><%=permiso.getFecha_inicio() %></td>
+                                                    <td><%=permiso.getFecha_termino() %></td>
                                                     <form action="VerPermiso" method="POST">
                                                         <td><% if(permiso.getId_solicitud() != 0){%>
                                                             <button class="btn btn-link form-control" type="submit" name="id_permiso" value="<%=tipopermiso.getPermiso() %>"><i class="fas fa-external-link-alt"></i> Permiso <%=tipopermiso.getPermiso() %></button>
@@ -368,6 +368,7 @@
                                         <form name="form" id="form" method="POST" action="VerResolucion">
                                             <table class="table">
                                                 <tr>
+                                                <p><Strong>Validar Documento</strong></p>
                                                     <td>Ingrese el código del decreto</td>
                                                     <td><input class="form-control" required id="id_resolucion" pattern="[0-9]+" title="Código es númerico." type="text"  name="id_resolucion"></td>
                                                 </tr>

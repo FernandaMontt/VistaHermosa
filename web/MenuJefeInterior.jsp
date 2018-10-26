@@ -67,6 +67,7 @@
                 UsuarioPerfilDAO usuarioPerfilDAO = new UsuarioPerfilDAO();
                 PermisoResolucionDAO   permisoResolucionDAO = new PermisoResolucionDAO();
                 
+                
                 String mensajeError = (String)request.getSession().getAttribute("mensajeError");
                 request.getSession().setAttribute("mensajeError", null);
                 
@@ -163,10 +164,10 @@
                                                 <tr>
                                                     <form name="formAutorizar" id="formAutorizar" method="POST" action="AutorizarPermiso">
                                                         <td style="display: none"><input readonly size="4" type="text" name="id_permiso" id="id_permiso" value="<%=permiso.getId_solicitud() %>"></td>
-                                                        <td><%=Fechas.formatoFechaHora(permiso.getFecha_solicitud()) %></td>
-                                                        <td><%=usuarioDAO.read(permiso.getId_usuario()).getNombre() %> <%=usuarioDAO.read(permiso.getId_usuario()).getApellido() %></td>
+                                                        <td><%=permiso.getFecha_solicitud() %></td>
+                                                        <td><%=usuarioDAO.read(permiso.getId_usuario()).getNombre() %></td>
                                                         <td><%=permisoTipoDAO.read(permiso.getId_tipo_permiso()).getPermiso() %></td>
-                                                        <td><%=Fechas.formatoFecha(permiso.getFecha_termino()) %></td>
+                                                        <td><%=permiso.getFecha_termino() %></td>
                                                         <td><%=permiso.getFecha_revision() %></td>
                                                         <td><%=permisoEstadoDAO.read(permiso.getId_estado_permiso()).getEstado() %></td>
                                                         <td><button class="btn btn-link" type="submit"><i class="fas fa-edit"></i> Permiso <%=permiso.getId_solicitud() %></button></td>

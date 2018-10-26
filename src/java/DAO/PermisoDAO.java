@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class PermisoDAO {
     PreparedStatement ps;
     
-    private static final String SQL_INSERT = "INSERT INTO SOLICITUD_PERMISO VALUES (SEQ_SOLICITUD_PERMISO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO SOLICITUD_PERMISO VALUES (SEQ_SOLICITUD_PERMISO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE SOLICITUD_PERMISO SET fecha_creacion=?, fecha_desde=?, fecha_hasta=?, dias=?, observacion=?, usuario=?, resolucion=?, adjunto=?, estado=?, tipo=?, motivo=? WHERE id_permiso = ?";
     private static final String SQL_READ = "SELECT * FROM SOLICITUD_PERMISO WHERE ID_SOLICITUD = ?";
     private static final String SQL_READALL = "SELECT * FROM SOLICITUD_PERMISO ORDER BY FECHA_SOLICITUD";
@@ -32,6 +32,7 @@ public class PermisoDAO {
     private static final String SQL_READALL_DEPARTAMENTO = "SELECT P.ID_PERMISO, P.FECHA_CREACION, P.FECHA_DESDE, P.FECHA_HASTA, P.DIAS, P.OBSERVACION, P.USUARIO, P.RESOLUCION, P.ADJUNTO, P.ESTADO, P.TIPO, P.MOTIVO FROM SOLICITUD_PERMISO P INNER JOIN USUARIO U ON U.RUT = P.USUARIO WHERE U.DEPARTAMENTO = ? ORDER BY FECHA_SOLICITUD";
     private static final String SQL_READALL_ESTADO_DEPARTAMENTO = "SELECT P.ID_PERMISO, P.FECHA_CREACION, P.FECHA_DESDE, P.FECHA_HASTA, P.DIAS, P.OBSERVACION, P.USUARIO, P.RESOLUCION, P.ADJUNTO, P.ESTADO, P.TIPO, P.MOTIVO FROM PERMISOS P INNER JOIN USUARIO U ON U.RUT = P.USUARIO WHERE P.ESTADO = ? AND U.DEPARTAMENTO = ? ORDER BY FECHA_SOLICITUD";
     private static final String SQL_SUM_USUARIO_ESTADO_TIPO = "SELECT SUM(DIAS) FROM PERMISOS WHERE USUARIO=? AND ESTADO=? AND TIPO=? ORDER BY FECHA_CREACION";
+    private static final String SQL_PROCEDURE_SOLICITUD_PERMISO_INSERT = "SELECT PROCEDURE SOLICITUD_PERMISO_INSERT";
     
     private static final Conexion con = Conexion.iniciarConexion();
     
