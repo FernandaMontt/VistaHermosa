@@ -150,7 +150,7 @@
                     </nav>
                         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                             <div class="tab-pane table-responsive fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <div>
+                                <div >
                                     <table id="tabla-permisos" class="table table-hover dataTable no-footer">
                                         <thead>
                                             <tr>

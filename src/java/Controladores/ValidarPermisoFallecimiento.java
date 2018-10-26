@@ -78,7 +78,7 @@ public class ValidarPermisoFallecimiento extends HttpServlet {
             
             PermisoDAO permisoDAO = new PermisoDAO();
             PermisoDTO permisoDTO = new PermisoDTO();
-            
+                   
             permisoDTO.setFecha_solicitud(fechaSolicitud);
             permisoDTO.setFecha_inicio(fechaInicio);
             permisoDTO.setFecha_termino(fechaFin);
@@ -99,7 +99,7 @@ public class ValidarPermisoFallecimiento extends HttpServlet {
             permisoDTO.setTipo(2); //TIPO FALLECIMIENTO
             permisoDTO.setMotivo(permisoMotivoDAO.last().getId_motivo());*/
             
-            if(permisoDAO.create(permisoDTO)){
+            if(permisoDAO.Solicitud(permisoDTO)){
                 //SE ENVIA UN CORREO A JEFE INTERNO
                 usuario.setCorreo_empresa(usuario.getRut());
                 usuario.setP_fallecimiento(usuario.getId_usuario());

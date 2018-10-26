@@ -122,7 +122,7 @@ public class ValidarPermisoLegal extends HttpServlet {
                                 PermisoDAO permisoDAO = new PermisoDAO();
 
                                 //if(Fechas.permiso(permiso)){ // VERIFICAR SI POSEE UN PERMISO EN ESAS FECHAS
-                                    if(permisoDAO.create(permiso)){
+                                    if(permisoDAO.Solicitud(permiso)){
                                     usuario.setF_legal(usuario.getF_legal() - diasSolicitados);
                                     UsuarioDAO usuarioDAO = new UsuarioDAO();
 

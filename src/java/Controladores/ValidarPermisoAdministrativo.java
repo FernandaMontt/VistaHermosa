@@ -123,7 +123,7 @@ public class ValidarPermisoAdministrativo extends HttpServlet {
                                 PermisoDAO permisoDAO = new PermisoDAO();
 
                                 //if(Fechas.permiso(permiso)){ // VERIFICAR SI POSEE UN PERMISO EN ESAS FECHAS
-                                if(permisoDAO.create(permiso)){
+                                if(permisoDAO.Solicitud(permiso)){
                                     /*diasSolicitados = fecha solicitud - fecha termino*/
                                     usuario.setP_administrativo(usuario.getP_administrativo() - diasSolicitados);
                                     UsuarioDAO usuarioDAO = new UsuarioDAO();

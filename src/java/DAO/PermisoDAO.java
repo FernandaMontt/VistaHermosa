@@ -7,6 +7,7 @@ package DAO;
 
 import Conexion.Conexion;
 import DTO.PermisoDTO;
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,15 +33,51 @@ public class PermisoDAO {
     private static final String SQL_READALL_DEPARTAMENTO = "SELECT P.ID_PERMISO, P.FECHA_CREACION, P.FECHA_DESDE, P.FECHA_HASTA, P.DIAS, P.OBSERVACION, P.USUARIO, P.RESOLUCION, P.ADJUNTO, P.ESTADO, P.TIPO, P.MOTIVO FROM SOLICITUD_PERMISO P INNER JOIN USUARIO U ON U.RUT = P.USUARIO WHERE U.DEPARTAMENTO = ? ORDER BY FECHA_SOLICITUD";
     private static final String SQL_READALL_ESTADO_DEPARTAMENTO = "SELECT P.ID_PERMISO, P.FECHA_CREACION, P.FECHA_DESDE, P.FECHA_HASTA, P.DIAS, P.OBSERVACION, P.USUARIO, P.RESOLUCION, P.ADJUNTO, P.ESTADO, P.TIPO, P.MOTIVO FROM PERMISOS P INNER JOIN USUARIO U ON U.RUT = P.USUARIO WHERE P.ESTADO = ? AND U.DEPARTAMENTO = ? ORDER BY FECHA_SOLICITUD";
     private static final String SQL_SUM_USUARIO_ESTADO_TIPO = "SELECT SUM(DIAS) FROM PERMISOS WHERE USUARIO=? AND ESTADO=? AND TIPO=? ORDER BY FECHA_CREACION";
-    private static final String SQL_PROCEDURE_SOLICITUD_PERMISO_INSERT = "SELECT PROCEDURE SOLICITUD_PERMISO_INSERT";
+    private static final String SQL_PROCEDURE_SOLICITUD_PERMISO_INSERT = "CALL SOLICITUD_PERMISO_INSERT(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
     
     private static final Conexion con = Conexion.iniciarConexion();
+    /*LLamar al procedimiento*/
+    CallableStatement cst;
     
+    public boolean Solicitud(PermisoDTO aux)
+    {
+       try {          
+            cst = con.getCnn().prepareCall(SQL_PROCEDURE_SOLICITUD_PERMISO_INSERT);
+            
+            cst.setInt(1, aux.getId_solicitud());
+            cst.setDate(2, new java.sql.Date(aux.getFecha_inicio().getTime()));
+            cst.setDate(3, new java.sql.Date(aux.getFecha_termino().getTime()));
+            cst.setDate(4, new java.sql.Date(aux.getFecha_reincorporacion().getTime()));
+            cst.setDate(5, new java.sql.Date(aux.getFecha_solicitud().getTime()));
+            cst.setDate(6, new java.sql.Date(aux.getFecha_revision().getTime()));
+            cst.setInt(7, aux.getId_motivo());
+            cst.setInt(8, aux.getId_usuario());
+            cst.setInt(9, aux.getId_tipo_permiso());
+            cst.setInt(10, aux.getId_estado_permiso());
+            
+            if (cst.executeUpdate() > 0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PermisoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            con.cerrarConexion();
+            try {
+                cst.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PermisoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false; 
+    }
     /**
      *
      * @param aux
      * @return
      */
+    
+    
     public boolean create(PermisoDTO aux) { 
         try {          
             ps = con.getCnn().prepareStatement(SQL_INSERT);
@@ -340,4 +377,6 @@ public class PermisoDAO {
         }
         return permiso;
     }
+    
+
 }

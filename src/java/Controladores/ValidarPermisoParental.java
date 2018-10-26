@@ -91,7 +91,7 @@ public class ValidarPermisoParental extends HttpServlet {
                 permisoDTO.setTipo(4); //TIPO PARENTAL
                 permisoDTO.setMotivo(permisoMotivoDAO.last().getId_motivo());*/
 
-                if(permisoDAO.create(permisoDTO)){
+                if(permisoDAO.Solicitud(permisoDTO)){
                    
                     //SE ENVIA UN CORREO A JEFE INTERNO
                     usuario.setCorreo_empresa(usuario.getRut());

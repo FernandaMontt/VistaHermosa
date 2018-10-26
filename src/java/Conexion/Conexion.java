@@ -5,6 +5,7 @@
  */
 package Conexion;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -27,6 +28,8 @@ public class Conexion {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
     
     /**
      *
@@ -53,4 +56,9 @@ public class Conexion {
     public void cerrarConexion(){
         instancia = null;
     }
+
+    /*public CallableStatement prepareCall() throws SQLException {
+        CallableStatement cst = cnn.prepareCall("{CALL SOLICITUD_PERMISO_INSERT(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}"); //To change body of generated methods, choose Tools | Templates.
+         return null;
+    }*/
 }
